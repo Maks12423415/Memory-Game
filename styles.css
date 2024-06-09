@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+  gap: 50px;
+}
+
+.game-container {
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  float: left;
+}
+
+.memory-card {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flip .front-face {
+  transform: rotateY(0deg);
+}
+
+.memory-card.flip .back-face {
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched .front-face {
+  background-color: #4caf50; /* Zielony kolor dla poprawnie zaznaczonych par */
+}
+
+.memory-card .front-face,
+.memory-card .back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+.memory-card .front-face {
+  background-color: #2e3d49;
+  transform: rotateY(180deg);
+}
+
+.memory-card .back-face {
+  background-color: #fff;
+  color: #000;
+  transform: rotateY(0deg);
+}
+
+/* Dodane style dla formularza i tabeli wyników */
+
+form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#scores-container {
+  margin-top: 20px;
+  text-align: center;
+  float: right;
+}
+
+#scores-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#scores-table th,
+#scores-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#scores-table th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+input[type="text"],
+button[type="submit"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc; /* Jasnoszare obramowanie */
+  border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+  background-color: #00008b; /* Ciemniejszy odcień niebieskiego po najechaniu */
+  color: white;
+}
